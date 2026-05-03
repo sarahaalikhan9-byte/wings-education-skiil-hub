@@ -1,0 +1,123 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Montserrat:wght@400;600;700;800&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-royal: #6a0dad;
+  --color-royal-dark: #4b0082;
+  --color-royal-light: #9370db;
+  --color-gold: #d4af37;
+  --color-gold-light: #ffd700;
+  
+  --color-bg-main: #f8f4ff;
+  --color-bg-card: #ffffff;
+  --color-purple-soft: #f8f4ff;
+  --color-purple-border: #e9d5ff;
+
+  --color-text-main: #2a0a4a;
+  --color-text-light: #5a3a7a;
+  --color-text-muted: #71598c;
+  
+  --font-sans: "Poppins", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+}
+
+@layer base {
+  body {
+    @apply bg-bg-main text-text-main font-sans selection:bg-gold selection:text-white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    background-image:
+      radial-gradient(circle at 15% 15%, rgba(106, 13, 173, 0.1), transparent 35%),
+      radial-gradient(circle at 85% 85%, rgba(212, 175, 55, 0.08), transparent 35%);
+  }
+
+  h1, h2, h3, h4 {
+    @apply font-display font-bold;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-white/75 backdrop-blur-md border border-purple-border/60;
+  }
+
+  .glass-strong {
+    @apply bg-white/90 backdrop-blur-xl border border-purple-border;
+  }
+  
+  .glass-nav {
+    @apply bg-white/80 backdrop-blur-lg border-b border-purple-border;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-royal to-gold bg-clip-text text-transparent;
+  }
+
+  .bg-gradient-royal {
+    @apply bg-gradient-to-br from-royal to-royal-dark text-white shadow-lg transition-all hover:brightness-110 hover:shadow-royal/30;
+  }
+
+  .nav-pill {
+    @apply px-6 py-2.5 text-text-main font-display font-black italic text-[8px] tracking-[4px] transition-all rounded-full border border-purple-border/30 hover:border-royal hover:bg-royal/5 uppercase active:scale-95;
+  }
+
+  .nav-pill.active {
+    @apply bg-royal text-white border-royal shadow-lg shadow-royal/20;
+  }
+
+  .nav-pill-gold {
+    @apply px-8 py-2.5 bg-gradient-to-r from-gold via-yellow-500 to-gold text-royal-dark font-display font-black italic text-[9px] tracking-[5px] transition-all rounded-full shadow-lg hover:scale-105 active:scale-95 uppercase;
+  }
+
+  .midnight-black {
+    @apply bg-[#050505] text-white;
+  }
+
+  .glass-dark {
+    @apply bg-black/60 backdrop-blur-2xl border border-white/10 shadow-2xl;
+  }
+
+  /* Improved contrast for secondary text */
+  .text-white-glow {
+    @apply text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.5)];
+  }
+
+  .gold-label {
+    @apply text-gold text-sm font-semibold tracking-[3px] uppercase mb-4 drop-shadow-sm;
+  }
+
+  .mesh-gradient {
+    @apply absolute inset-0 pointer-events-none opacity-50;
+    background: 
+      radial-gradient(circle at 80% 20%, rgba(106, 13, 173, 0.1) 0%, transparent 40%),
+      radial-gradient(circle at 10% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 40%);
+  }
+}
+
+@keyframes scan {
+  0% { top: 0; }
+  100% { top: 100%; }
+}
+
+@keyframes slideIn {
+  0% { transform: translateY(30px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+}
+
+.animate-scan {
+  animation: scan 3s linear infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.float-soft {
+  animation: float 4s ease-in-out infinite;
+}
+

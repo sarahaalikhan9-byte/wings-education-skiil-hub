@@ -1,0 +1,6 @@
+{
+  "name": "Wings Global",
+  "description": "A premium AI-powered education platform with multilingual support and automated AI video generation for lessons.",
+  "requestFramePermissions": ["camera"],
+  "majorCapabilities": []
+}
